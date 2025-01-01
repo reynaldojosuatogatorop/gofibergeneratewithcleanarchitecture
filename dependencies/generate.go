@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-func GenerateFolderStructure(folderName string) error {
+func GenerateFolderStructure(folderName string, port string) error {
 	var initName string
 	// Ambil kata terakhir dari folderName yang dipisahkan oleh "-"
 	parts := strings.Split(folderName, "-")
@@ -64,7 +64,7 @@ func GenerateFolderStructure(folderName string) error {
 
 	// 5. Tambahkan file config.go setelah struktur folder dibuat
 
-	err = WriteConfigFile(folderName)
+	err = WriteConfigFile(folderName, port)
 	if err != nil {
 		return err
 	}

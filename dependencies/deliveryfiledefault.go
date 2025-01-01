@@ -58,6 +58,17 @@ func WriteDeliveryAPIFile(projectFile string, initName string) error {
 		"github.com/gofiber/fiber/v2/middleware/cors"
 		"github.com/spf13/viper"
 	)
+
+	// @title Open API for Learning Information Master Data
+	// @version 1.0.0
+	// @description Open API for Learning Information Master Data
+	// @host localhost:8099
+	// @BasePath /
+
+	// @securityDefinitions.apikey bearerAuth
+	// @in header
+	// @name Authorization
+	// @description Input only value of barrer token prefix, e.g. "abcde12345".
 	
 	type ` + initNameCapitalize + `Handler struct {
 		` + initNameCapitalize + `UseCase domain.` + initNameCapitalize + `UseCase

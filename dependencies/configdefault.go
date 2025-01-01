@@ -6,7 +6,7 @@ import (
 )
 
 // Tambahkan fungsi untuk menulis file config.go setelah struktur folder dibuat
-func WriteConfigFile(folderPath string) error {
+func WriteConfigFile(folderPath string, port string) error {
 	configContent := `package config
 
 import (
@@ -133,7 +133,7 @@ type Redis struct {
 
 var defaultConfig = &Config{
 	Server: Server{
-		Port:          "8888",
+		Port:          "` + port + `",
 		Prefork:       false,
 		StrictRouting: false,
 		CaseSensitive: false,
@@ -145,14 +145,14 @@ var defaultConfig = &Config{
 			Idle:  120,
 		},
 		LogLevel:      "debug",
-		GRPCPort:      "58888",
+		GRPCPort:      "5` + port + `",
 		BasePath:      "",
 		SessionExpire: 3600,
 	},
 
 	Database: Database{
 		Host:        "localhost",
-		Port:        "8080",
+		Port:        "8888",
 		Database:    "database_name",
 		User:        "username",
 		Password:    "password",

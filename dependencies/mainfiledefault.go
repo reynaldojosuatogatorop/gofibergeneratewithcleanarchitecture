@@ -188,6 +188,9 @@ func WriteMainFile(projectFile string, initName string) error {
 			app.Get(viper.GetString("server.base_path")+"/", func(c *fiber.Ctx) error {
 				return c.SendString("Hello, World!")
 			})
+
+			// Route untuk Swagger
+			app.Get("/swagger/*", swagger.HandlerDefault) // Endpoint Swagger
 		
 			_DeliveryHTTP.RouterAPI(app, usecase` + initNameCapitalize + `)
 		

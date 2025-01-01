@@ -40,9 +40,16 @@ func main() {
 		return
 	}
 
+	fmt.Print("Masukan default port service: ")
+	portServiceReader, err := reader.ReadString('\n')
+	if err != nil {
+		fmt.Println("Error membaca input:", err)
+		return
+	}
+
 	folderName = strings.TrimSpace(folderName) // Menghapus karakter newline atau spasi
 
-	if err := dependencies.GenerateFolderStructure(folderName); err != nil {
+	if err := dependencies.GenerateFolderStructure(folderName, portServiceReader); err != nil {
 		fmt.Println("Error:", err)
 	} else {
 		fmt.Println("Struktur folder berhasil dibuat dan modul Go diinisialisasi!")
